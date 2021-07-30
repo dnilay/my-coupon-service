@@ -1,0 +1,28 @@
+version: '3'
+services:
+    coupon-app:
+        container_name: coupon-app
+        image: dnilay/couponservice
+        restart: on-failure
+        ports: 
+            - 10555:9091
+        environment: 
+            WAIT_HOSTS: mysql:3306
+        depends_on: 
+            - docker-mysql
+    docker-mysql:
+        container_name: docker-mysql
+        image: mysql
+        restart: always
+        environment: 
+            MYSQL_DATABASE: myd
+            MYSQL_ROOT_PASSWORD: test1234
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_USER: user1
+            MYSQL_PASSWORD: pass@1234
+        volumes:
+            - ./sql:/docker-entrypoint-initdb.d
+        ports:
+            - "3306:3306"
+
+        
