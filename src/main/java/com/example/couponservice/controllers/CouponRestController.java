@@ -2,6 +2,8 @@ package com.example.couponservice.controllers;
 
 import com.example.couponservice.model.Coupon;
 import com.example.couponservice.repos.CouponRepo;
+import org.apache.logging.log4j.Logger;
+import org.slf4j.ILoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +19,6 @@ public class CouponRestController {
 
 	@Autowired
 	CouponRepo repo;
-
 	@RequestMapping(value = "/coupons", method = RequestMethod.POST)
 	public Coupon create(@RequestBody Coupon coupon) {
 
