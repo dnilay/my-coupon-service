@@ -15,7 +15,7 @@ services:
         image: mysql
         restart: always
         environment: 
-            MYSQL_DATABASE: myd
+            MYSQL_DATABASE: mydb
             MYSQL_ROOT_PASSWORD: test1234
             MYSQL_ROOT_HOST: '%'
             MYSQL_USER: user1
